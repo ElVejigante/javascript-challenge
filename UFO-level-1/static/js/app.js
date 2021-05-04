@@ -19,6 +19,12 @@ tableData.forEach(function(ufo){
 var button = d3.select('#filter-btn');
 
 button.on('click', function(){
-//select input element html
+// select input element html
     var inputElement = d3.select('.form-control');
-})
+// input element value property
+    var inputDate = inputElement.property('value');
+    //console.log(inputDate);
+// filter data by date
+    var filterData = tableData.filter(ufo => ufo.datetime === inputDate);
+    //console.log(filterData);
+});
