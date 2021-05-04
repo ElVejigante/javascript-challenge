@@ -27,4 +27,15 @@ button.on('click', function(){
 // filter data by date
     var filterData = tableData.filter(ufo => ufo.datetime === inputDate);
     //console.log(filterData);
+// display table rows and cells in html
+    var tBody = d3.select('tbody');
+// clear table body
+    tBody.html('');
+// loop through filtered data to insert objects
+    filterData.forEach(function(ufo){
+        var row = tBody.append('tr');
+        Object.entries(ufo).forEach(function([key, value]){
+            var cell = row.append('td').text(value);
+        });
+    });
 });
