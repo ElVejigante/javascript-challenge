@@ -22,14 +22,14 @@ button.on('click', function(){
     var inputDate = inputElement.property('value');
     //console.log(inputDate);
 // filter data by date
-    var filterData = tableData.filter(ufo => ufo.datetime === inputDate);
-    //console.log(filterData);
+    var filteredData = tableData.filter(ufo => ufo.datetime === inputDate);
+    //console.log(filteredData);
 // display table rows and cells in html
     var tableBody = d3.select('tbody');
 // clear table body
     tableBody.html('');
 // loop through filtered data to insert objects
-    filterData.forEach(function(ufo){
+    filteredData.forEach(function(ufo){
         var row = tableBody.append('tr');
         Object.entries(ufo).forEach(function([key, value]){
             var cell = row.append('td').text(value);
