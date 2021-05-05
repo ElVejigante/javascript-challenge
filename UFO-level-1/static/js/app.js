@@ -1,12 +1,11 @@
 // from data.js
 var tableData = data;
-
 // Select table body
-var tBody = d3.select('tbody');
+var tableBody = d3.select('tbody');
 // loop through data
 tableData.forEach(function(ufo){
 // append data to each table row
-    var row = tBody.append('tr');
+    var row = tableBody.append('tr');
 // get key-value pairs
     Object.entries(ufo).forEach(function([key, value]){
         //console.log(key, value);
@@ -14,10 +13,8 @@ tableData.forEach(function(ufo){
         var cell = row.append('td').text(value);
     });
 });
-
 // Button Function
 var button = d3.select('#filter-btn');
-
 button.on('click', function(){
 // select input element html
     var inputElement = d3.select('.form-control');
@@ -28,12 +25,12 @@ button.on('click', function(){
     var filterData = tableData.filter(ufo => ufo.datetime === inputDate);
     //console.log(filterData);
 // display table rows and cells in html
-    var tBody = d3.select('tbody');
+    var tableBody = d3.select('tbody');
 // clear table body
-    tBody.html('');
+    tableBody.html('');
 // loop through filtered data to insert objects
     filterData.forEach(function(ufo){
-        var row = tBody.append('tr');
+        var row = tableBody.append('tr');
         Object.entries(ufo).forEach(function([key, value]){
             var cell = row.append('td').text(value);
         });
